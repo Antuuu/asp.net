@@ -1,0 +1,43 @@
+@model Bjj.Models.Fighter
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Details</h1>
+
+<h4>Zawodnik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <input type="hidden" asp-for="Id" />
+            <div >
+                <label asp-for="FirstName" class="control-label"></label>:
+                <span> @Model.FirstName </span>
+            </div>
+            <div >
+                <label asp-for="LastName" class="control-label"></label>:
+                <span> @Model.LastName </span>
+            </div>
+            <div >
+                <label asp-for="DateOfBirth" class="control-label"></label>:
+                <span> @Model.DateOfBirth.ToString("dd/MM/yyyy") </span>
+            </div>
+            <div >
+                <label asp-for="WeightCategory" class="control-label"></label>:
+                <span> @Model.WeightCategory </span>
+            </div>
+            <div >
+                <label asp-for="BeltColour" class="control-label"></label>:
+                <span> @Model.BeltColour </span>
+            </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
