@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CNKeE9XDQdcIRjWx5eKrVuU4zVKM5Cdhgn6Xo+CDEDWr2NBpoAG+QNf+kWAQyS0L9WHI7O3YNUIcfG4CYVynzg==",
+  "dgSpecHash": "XAWtlVUMYTMZHHl7p9zCdrDJwbhU1Kegj+NSqG4013gQzrhSsNhKEFqFT3hnbEdt/QZlWrKj4K+MX/Wa2u3NyA==",
   "success": true,
-  "projectFilePath": "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/Bjj.csproj",
+  "projectFilePath": "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj",
   "expectedPackageFiles": [
     "/Users/kacper/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/kacper/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",

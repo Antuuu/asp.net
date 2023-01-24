@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/Bjj.csproj": {}
+    "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj": {}
   },
   "projects": {
-    "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/Bjj.csproj": {
+    "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/Bjj.csproj",
+        "projectUniqueName": "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj",
         "projectName": "Bjj",
-        "projectPath": "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/Bjj.csproj",
+        "projectPath": "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj",
         "packagesPath": "/Users/kacper/.nuget/packages/",
-        "outputPath": "/Users/kacper/Desktop/wsei/asp_projekt/Bjj/Bjj/obj/",
+        "outputPath": "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kacper/.nuget/NuGet/NuGet.Config"
