@@ -36,8 +36,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: $"{{controller=Fighter}}/{{action=Index}}/{{id?}}");
+
+app.MapControllerRoute(
+    name: "Fight",
+    pattern: $"{{controller=Fight}}/{{action=Index}}/{{id?}}")
+    ;
 
 app.Run();

@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Views/Fight/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmlnaHQvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Views/Fight/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmlnaHQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Views/Fighter/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmlnaHRlci9BZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

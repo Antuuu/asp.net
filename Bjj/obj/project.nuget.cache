@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XAWtlVUMYTMZHHl7p9zCdrDJwbhU1Kegj+NSqG4013gQzrhSsNhKEFqFT3hnbEdt/QZlWrKj4K+MX/Wa2u3NyA==",
+  "dgSpecHash": "+JY5o1dWwvt4tTybdkH2958V5eUjANHi5P/dB/ToGDf01r79tMaJRoeC2VlZ5LUEiA6NwF2vmxBZS93Cjm1wGQ==",
   "success": true,
   "projectFilePath": "/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/Bjj.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "/Users/kacper/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/kacper/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/Users/kacper/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/kacper/.nuget/packages/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg.sha512",
     "/Users/kacper/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "/Users/kacper/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
     "/Users/kacper/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

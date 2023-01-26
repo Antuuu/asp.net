@@ -325,3 +325,4 @@
 /Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/obj/Debug/net6.0/Bjj.pdb
 /Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/obj/Debug/net6.0/Bjj.genruntimeconfig.cache
 /Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/obj/Debug/net6.0/ref/Bjj.dll
+/Users/kacper/Desktop/wsei/asp_zaliczenie/Bjj/bin/Debug/net6.0/Newtonsoft.Json.dll

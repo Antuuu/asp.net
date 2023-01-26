@@ -1,9 +1,39 @@
+@using System.Collections
+@using Microsoft.VisualBasic.CompilerServices
 @model Bjj.Models.Fighter
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Details";
+    var fightsData = (IEnumerable<FightDisplay>)ViewData["Fights"];  
+
 }
 
+<script type="text/javascript">
+
+window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Top finishes wins"
+      },
+      data: [
+      {
+       type: "doughnut",
+       dataPoints: @Html.Raw(ViewBag.Data)
+      //[
+     //  {  y: 53.37, indexLabel: "Android" },
+      // {  y: 35.0, indexLabel: "Apple iOS" },
+      // {  y: 7, indexLabel: "Blackberry" },
+       //{  y: 2, indexLabel: "Windows Phone" },
+       //{  y: 5, indexLabel: "Others" }
+       //]
+     }
+     ]
+   });
+
+    chart.render();
+}
+</script>
 <h1>Details</h1>
 
 <h4>Zawodnik</h4>
@@ -31,9 +61,36 @@
                 <label asp-for="BeltColour" class="control-label"></label>:
                 <span> @Model.BeltColour </span>
             </div>
+            <div >
+                <label class="control-label">Liczba wakl</label>:
+                <span> @fightsData.Count()</span>
+            </div>            
     </div>
 </div>
 
+<table class="table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Oponent</th>
+        <th>Result</th>
+        <th>Result by</th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var fight in fightsData)
+{
+    <tr>
+        <td>@fight.DateOfFight </td>
+        <td>@fight.Oponent </td>
+        <td>@fight.Result </td>
+        <td>@fight.FightResultBy </td>
+    </tr>
+}
+    </tbody>
+</table>
+
+<div id="chartContainer" style="height: 400px; width: 60%; align-content: center;"></div>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

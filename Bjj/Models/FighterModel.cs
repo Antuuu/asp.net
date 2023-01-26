@@ -36,6 +36,15 @@ public class Fighter
     [Display(Name = "Pas")]
     public BeltColours BeltColour { get; set; }
     /* do uzupełnienia */
+
+    [NotMapped]
+    public string FullName
+    {
+        get
+        {
+            return FirstName + " " + LastName;
+        }
+    }
 }
 public enum BeltColours 
 {

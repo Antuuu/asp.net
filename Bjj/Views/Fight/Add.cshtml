@@ -1,0 +1,57 @@
+@model Fight
+
+@{
+    ViewData["Title"] = "Add fight";
+}
+
+<h1>Add</h1>
+
+<h4>Walka</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fighter1)
+                @Html.DropDownListFor(model => model.Fighter1,
+                    new SelectList(@Model.Fighters, "Id", "FullName"),
+                    "Select Fighter")
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fighter2)
+                @Html.DropDownListFor(f => f.Fighter2,
+                    new SelectList(@Model.Fighters, "Id", "FullName"),
+                    "Select Fighter")
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Winner)
+                @Html.DropDownListFor(f => f.Winner,
+                    new SelectList(@Model.Fighters, "Id", "FullName"),
+                    "Select Winner")
+            </div>          
+            <div class="form-group">
+                <input asp-for="DateOfFight" class="form-control" />
+            </div>
+            <div class="form-group">
+                <select asp-for="WeightCategory" asp-items="@Html.GetEnumSelectList<WeightClasses>()" class="form-control" ></select>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FightResultBy)
+                @Html.DropDownListFor(f => f.FightResultBy, 
+                            new SelectList(@Model.FightResults, "Id", "Name"), 
+                            "Select fight result")
+            </div>         
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

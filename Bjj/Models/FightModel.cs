@@ -10,13 +10,16 @@ public class Fight
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
+    
+    [Display(Name = "First fighter")]
+    public Fighter Fighter1 { get; set; }
+   
+    [Display(Name = "Second fighter")]
+    public Fighter Fighter2 { get; set; }
+    
+    [Display(Name = "Winner")]
+    public Fighter Winner { get; set; }
 
-    [Key]
-    public int IdFigter1 { get; set; }
-    
-    [Key]
-    public int IdFigter2 { get; set; }
-    
     [Required]
     [Display(Name = "Data walki")]
     [DataType(DataType.Date)]
@@ -25,7 +28,23 @@ public class Fight
     [Required]
     [Display(Name = "Kategoria Wagowa")]
     public WeightClasses WeightCategory { get; set; }
+    
+    public FightResultBy FightResultBy { get; set; }
+    
+    [NotMapped]
+    public List<Fighter>? Fighters { get; set; }
+    
+    [NotMapped]
+    public List<FightResultBy>? FightResults { get; set; }
 
-    [Required] [Display(Name = "Pas")] public BeltColours BeltColour { get; set; }
-    /* do uzupełnienia */
+/* do uzupełnienia */
+}
+
+public class FightDisplay
+{
+    public string Oponent { get; set; }
+    public string Result { get; set; }
+    public DateTime DateOfFight { get; set; }
+    
+    public string FightResultBy { get; set; }
 }
