@@ -1,4 +1,4 @@
-@model Fight
+@model FightViewModel
 
 @{
     ViewData["Title"] = "Add fight";
@@ -12,23 +12,18 @@
     <div class="col-md-4">
         <form asp-action="Add">
             <div class="form-group">
-                @Html.LabelFor(model => model.Fighter1)
-                @Html.DropDownListFor(model => model.Fighter1,
-                    new SelectList(@Model.Fighters, "Id", "FullName"),
-                    "Select Fighter")
+                @Html.LabelFor(model => model.Fighter1Id)
+                @Html.DropDownListFor(x => x.Fighter1Id, Model.Fighters)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Fighter2)
-                @Html.DropDownListFor(f => f.Fighter2,
-                    new SelectList(@Model.Fighters, "Id", "FullName"),
-                    "Select Fighter")
+                @Html.LabelFor(model => model.Fighter2Id)
+                @Html.DropDownListFor(x => x.Fighter2Id, Model.Fighters)
             </div>
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Winner)
-                @Html.DropDownListFor(f => f.Winner,
-                    new SelectList(@Model.Fighters, "Id", "FullName"),
-                    "Select Winner")
-            </div>          
+                @Html.LabelFor(model => model.WinnerId)
+                @Html.DropDownListFor(x => x.WinnerId, Model.Fighters)                
+            </div>        
             <div class="form-group">
                 <input asp-for="DateOfFight" class="form-control" />
             </div>
@@ -36,10 +31,9 @@
                 <select asp-for="WeightCategory" asp-items="@Html.GetEnumSelectList<WeightClasses>()" class="form-control" ></select>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.FightResultBy)
-                @Html.DropDownListFor(f => f.FightResultBy, 
-                            new SelectList(@Model.FightResults, "Id", "Name"), 
-                            "Select fight result")
+                @Html.LabelFor(model => model.FightResultById)
+                @Html.DropDownListFor(x => x.FightResultById, Model.FightEndBy)   
+                
             </div>         
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
