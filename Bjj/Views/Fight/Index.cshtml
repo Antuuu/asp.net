@@ -1,0 +1,63 @@
+@model IEnumerable<Bjj.Models.Fight>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h1>List of fights <a asp-action="Add" class="btn" >Add fight</a></h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fighter1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fighter2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Winner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WeightCategory)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfFight)
+        </th>            
+        <th>
+           Manage
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fighter1.FirstName) @Html.DisplayFor(modelItem => item.Fighter1.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fighter2.FirstName) @Html.DisplayFor(modelItem => item.Fighter2.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Winner.FirstName) @Html.DisplayFor(modelItem => item.Winner.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfFight)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>*@ 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

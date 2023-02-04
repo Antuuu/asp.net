@@ -49,10 +49,9 @@ public class FightController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Add([Bind("Id,Fighter1,Fighter2,Winner,DateOfFight,WeightCategory,FightResultBy")] Fight fight)
     {
-        
-            _context.Fights.Add(fight);
-            await _context.SaveChangesAsync();
-            return Index();
+        _context.Fights.Add(fight);
+        _context.SaveChanges();
+        return View();
     }
 
 }

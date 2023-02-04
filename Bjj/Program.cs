@@ -46,4 +46,6 @@ app.MapControllerRoute(
     pattern: $"{{controller=Fight}}/{{action=Index}}/{{id?}}")
     ;
 
+app.MapControllers();
+
 app.Run();

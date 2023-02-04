@@ -129,5 +129,12 @@ namespace Bjj.Controllers
             ViewData["Fights"] = fightsToDisplay;
             return View(fighter);
         }
+                
+        [HttpGet("{id:int}")]
+        public Fighter Get(int id)
+        {
+            return _context.Fighters.SingleOrDefault(f => f.Id == id);
+        }
+
     }
 }
