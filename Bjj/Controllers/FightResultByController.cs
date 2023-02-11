@@ -19,12 +19,12 @@ namespace Bjj.Controllers
             _context = context;
         }
 
-        private List<Fighter> _fighters;
+        private List<FightResultBy> _fightResultBy;
 
         public IActionResult Index()
         {
-            _fighters = _context.Fighters.ToList();
-            return View("Index", _fighters);
+            _fightResultBy = _context.FightResultsBy.ToList();
+            return View("Index", _fightResultBy);
         }
     }
 }

@@ -1,0 +1,42 @@
+@model IEnumerable<Bjj.Models.FightResultBy>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@*List of competitors <a asp-action="Add" class="btn" >Add Fighter</a> 
+
+*@
+</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Manage
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
