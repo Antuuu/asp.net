@@ -77,11 +77,22 @@ namespace Bjj.Data
                     FightResultBy = submission2
                 };
                 
+                var fight3 = new Fight
+                {
+                    Fighter1 = fighter,
+                    Fighter2 = fighter, 
+                    Winner = fighter,
+                    DateOfFight = new DateTime(1900, 01, 01),
+                    WeightCategory = WeightClasses.Light,
+                    FightResultBy = submission2
+                };
+                
                 
                 context.Fighters.Add(fighter);
                 context.Fighters.Add(fighter2);
                 context.Fights.Add(fight);
                 context.Fights.Add(fight2);
+                context.Fights.Add(fight3);
                 context.FightResultsBy.Add(submission1);
                 context.FightResultsBy.Add(submission2);
                 context.FightResultsBy.Add(submission3);
