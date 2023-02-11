@@ -61,30 +61,26 @@ namespace Bjj.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(
-            [Bind("Fighter1Id,Fighter2Id,WinnerId,DateOfFight,WeightCategory,FightResultByID")]
+            [Bind("Fighter1Id,Fighter2Id,WinnerId,DateOfFight,WeightCategory,FightResultById")]
             FightViewModel fightViewModel)
         {
             
             _fighters = _context.Fighters.ToList();
             _fightFinishes = _context.FightResultsBy.ToList();
             
-            var fighter1 = _fighters.Where(f => f.Id == fightViewModel.Fighter1Id).FirstOrDefault();
-            var fighter2 = _fighters.Where(f => f.Id == fightViewModel.Fighter2Id).FirstOrDefault();
-            var winner = _fighters.Where(f => f.Id == fightViewModel.WinnerId).FirstOrDefault();
-            var fightFinishedBy = _fightFinishes.Where(f => f.Id == fightViewModel.FightResultById).FirstOrDefault();
-
+          
             var fight = new Fight
             {
-                Fighter1 = fighter1,
-                Fighter2 = fighter2,
-                Winner = winner,
+                Fighter1Id = fightViewModel.Fighter1Id,
+                Fighter2Id= fightViewModel.Fighter2Id,
+                WinnerId = fightViewModel.WinnerId,
                 DateOfFight = fightViewModel.DateOfFight,
                 WeightCategory = fightViewModel.WeightCategory,
-                FightResultBy = fightFinishedBy,
+                FightResultById = fightViewModel.FightResultById
             };
             _context.Fights.Add(fight);
-            _context.SaveChanges();
-            return View();
+            await _context.SaveChangesAsync();
+            return Index();
         }
 
     }

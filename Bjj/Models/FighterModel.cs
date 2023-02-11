@@ -37,9 +37,6 @@ public class Fighter
     public BeltColours BeltColour { get; set; }
     /* do uzupełnienia */
     
-    public List<Fight> Fights1 { get; set; }
-    public List<Fight> Fights2 { get; set; }
-    public List<Fight> Winner { get; set; }
 
     [NotMapped]
     public string FullName

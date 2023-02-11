@@ -10,8 +10,8 @@ public class Fight
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-    public int? Fighte1Id { get; set; }
-    public int? Fighte2Id { get; set; }
+    public int? Fighter1Id { get; set; }
+    public int? Fighter2Id { get; set; }
     public int? WinnerId { get; set; }
     public int? FightResultById { get; set; }
     
