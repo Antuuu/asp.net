@@ -24,7 +24,7 @@ public class Fight
     [Display(Name = "Winner")]
     public Fighter Winner { get; set; }
 
-    public FightResultBy FightResultBy { get; set; }
+    public FightResultBy? FightResultBy { get; set; }
     
     [Required]
     [Display(Name = "Data walki")]

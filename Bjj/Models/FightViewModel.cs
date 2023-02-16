@@ -10,6 +10,8 @@ namespace Bjj.Models;
 public class FightViewModel
 {
     [Display(Name = "First fighter")]
+    public int? Id { get; set; }
+    [Display(Name = "First fighter")]
     public int Fighter1Id { get; set; }
    
     [Display(Name = "Second fighter")]

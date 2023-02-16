@@ -49,6 +49,10 @@ app.MapControllerRoute(
         name: "FightResultBy",
         pattern: $"{{controller=FightResultBy}}/{{action=Index}}/{{id?}}")
     ;
+app.MapControllerRoute(
+        name: "Academy",
+        pattern: $"{{controller=Academy}}/{{action=Index}}/{{id?}}")
+    ;
 
 app.MapControllers();
 

@@ -33,6 +33,50 @@ window.onload = function () {
 
     chart.render();
 }
+
+window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Top finishes wins"
+      },
+      data: [
+      {
+       type: "doughnut",
+       dataPoints: @Html.Raw(ViewBag.Data)
+      //[
+     //  {  y: 53.37, indexLabel: "Android" },
+      // {  y: 35.0, indexLabel: "Apple iOS" },
+      // {  y: 7, indexLabel: "Blackberry" },
+       //{  y: 2, indexLabel: "Windows Phone" },
+       //{  y: 5, indexLabel: "Others" }
+       //]
+     }
+     ]
+   });
+    var chartLoses = new CanvasJS.Chart("chartContainerLoses",
+    {
+      title:{
+        text: "Top finishes loses"
+      },
+      data: [
+      {
+       type: "doughnut",
+       dataPoints: @Html.Raw(ViewBag.DataLoses)
+      //[
+     //  {  y: 53.37, indexLabel: "Android" },
+      // {  y: 35.0, indexLabel: "Apple iOS" },
+      // {  y: 7, indexLabel: "Blackberry" },
+       //{  y: 2, indexLabel: "Windows Phone" },
+       //{  y: 5, indexLabel: "Others" }
+       //]
+     }
+     ]
+   });
+
+    chart.render();
+    chartLoses.render();
+}
 </script>
 <h1>Details</h1>
 
@@ -62,9 +106,13 @@ window.onload = function () {
                 <span> @Model.BeltColour </span>
             </div>
             <div >
-                <label class="control-label">Liczba wakl</label>:
+                <label class="control-label">Number of fights</label>:
                 <span> @fightsData.Count()</span>
-            </div>            
+            </div> 
+            <div >
+                <label class="control-label">Academy</label>:
+                <span> @Model.FAcademy.Name</span>
+            </div>               
     </div>
 </div>
 
@@ -90,8 +138,10 @@ window.onload = function () {
     </tbody>
 </table>
 
-<div id="chartContainer" style="height: 400px; width: 60%; align-content: center;"></div>
+<div id="chartContainer" style="height: 350px; width: 60%; align-content: center;"></div><div id="chartContainerLoses" style="height: 350px; width: 60%; align-content: center;"></div>
+
 <div>
+    
     <a asp-action="Index">Back to List</a>
 </div>
 

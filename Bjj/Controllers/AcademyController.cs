@@ -10,27 +10,27 @@ using SQLitePCL;
 
 namespace Bjj.Controllers
 {
-    public class FightResultByController : Controller
+    public class AcademyController : Controller
     {
         private readonly AppDbContext _context;
 
-        public FightResultByController(AppDbContext context)
+        public AcademyController(AppDbContext context)
         {
             _context = context;
         }
 
-        private List<FightResultBy> _fightResultBy;
+        private List<Academy> _academies;
 
         public IActionResult Index()
         {
-            _fightResultBy = _context.FightResultsBy.ToList();
-            return View("Index", _fightResultBy);
+            _academies = _context.Academies.ToList();
+            return View("Index", _academies);
         }
         
-        public IActionResult Delete(FightResultBy fightResultBy)
+        public IActionResult Delete(Academy academy)
         {
 
-            _context.FightResultsBy.Remove(fightResultBy);
+            _context.Academies.Remove(academy);
             _context.SaveChangesAsync();
 
             return Index();
@@ -45,9 +45,9 @@ namespace Bjj.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add([Bind("Id,Name")] FightResultBy fightResultBy)
+        public async Task<IActionResult> Add([Bind("Id,Name,HeadCoach,Address")] Academy academy)
         {
-            _context.Add(fightResultBy);
+            _context.Add(academy);
             await _context.SaveChangesAsync();
             return Index();
         }
@@ -60,26 +60,26 @@ namespace Bjj.Controllers
                 return NotFound();
             }
 
-            var fightResultBy = await _context.FightResultsBy.FindAsync(id);
-            if (fightResultBy == null)
+            var Academy = await _context.Academies.FindAsync(id);
+            if (Academy == null)
             {
                 return NotFound();
             }
-            return View(fightResultBy);
+            return View(Academy);
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] FightResultBy fightResultBy)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,HeadCoach,Address")] Academy academy)
         {
-            if (id != fightResultBy.Id)
+            if (id != academy.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _context.Update(fightResultBy);
+                _context.Update(academy);
                 await _context.SaveChangesAsync();
             }
             return Index();

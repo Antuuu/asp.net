@@ -27,7 +27,10 @@
         </th> 
         <th>
             @Html.DisplayNameFor(model => model.BeltColour)
-        </th>            
+        </th>
+        <th>
+            Akadamia
+        </th>               
         <th>
            Manage
         </th>
@@ -51,6 +54,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BeltColour)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FAcademy.Name)
+            </td>            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |

@@ -40,13 +40,28 @@ namespace Bjj.Data
                     Name = "DQ"
                 };
                 
+                var academy1 = new Academy
+                {
+                    Name = "Unity Jiu Jitsu",
+                    HeadCoach = "Maciej Kozak",
+                    Address = "Kraków ul. Ludowa 6"
+                };
+                
+                var academy2 = new Academy
+                {
+                    Name = "Akademia Sportów Walki Wilanów / Unity Team",
+                    HeadCoach = "Mirosław Okniński",
+                    Address = "Warszawa ul. Wiertnicza 26a"
+                };
+                
                 var fighter = new Fighter
                 {
                     FirstName = "Kacper",
                     LastName = "Cesarz",
                     WeightCategory = WeightClasses.Light,
                     BeltColour = BeltColours.Blue,
-                    DateOfBirth = new DateTime(1998, 09, 20)
+                    DateOfBirth = new DateTime(1998, 09, 20),
+                    FAcademy = academy1
                 };
                 var fighter2 = new Fighter
                 {
@@ -54,7 +69,9 @@ namespace Bjj.Data
                     LastName = "Stefańki",
                     WeightCategory = WeightClasses.Light,
                     BeltColour = BeltColours.Black,
-                    DateOfBirth = new DateTime(1998, 09, 20)
+                    DateOfBirth = new DateTime(1998, 09, 20),
+                    FAcademy = academy2
+
                 };
 
                 var fight = new Fight
@@ -87,7 +104,7 @@ namespace Bjj.Data
                     FightResultBy = submission2
                 };
                 
-                
+
                 context.Fighters.Add(fighter);
                 context.Fighters.Add(fighter2);
                 context.Fights.Add(fight);
@@ -96,6 +113,9 @@ namespace Bjj.Data
                 context.FightResultsBy.Add(submission1);
                 context.FightResultsBy.Add(submission2);
                 context.FightResultsBy.Add(submission3);
+                
+                context.Academies.Add(academy1);
+                context.Academies.Add(academy2);
 
                 context.SaveChanges();
 

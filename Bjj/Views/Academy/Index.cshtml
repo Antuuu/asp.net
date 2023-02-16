@@ -1,4 +1,4 @@
-@model IEnumerable<Bjj.Models.FightResultBy>
+@model IEnumerable<Bjj.Models.Academy>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,7 +7,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1><a asp-action="Add" class="btn" >Add Finish</a>
+<h1><a asp-action="Add" class="btn" >Add academy</a>
 
 </h1>
 <table class="table">
@@ -16,6 +16,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>  
+        <th>
+            @Html.DisplayNameFor(model => model.HeadCoach)
+        </th>         
         <th>
             Manage
         </th>
@@ -27,6 +33,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.HeadCoach)
+            </td>                  
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 

@@ -25,7 +25,7 @@ namespace Bjj.Controllers
         [Produces("application/json")] 
         public Fighter Get(int id)
         {
-            return _context.Fighters.SingleOrDefault(f => f.Id == id) ?? throw new InvalidOperationException();
+            return _context.Fighters.SingleOrDefault(f => f.Id == id) ?? throw new Exception("Fighter with this ID doesn't exist");
         }
         
         [HttpPost]

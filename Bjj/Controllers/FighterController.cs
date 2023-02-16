@@ -3,6 +3,7 @@ using System.Linq;
 using Bjj.Data;
 using Microsoft.AspNetCore.Mvc;
 using Bjj.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Newtonsoft.Json;
@@ -19,10 +20,11 @@ namespace Bjj.Controllers
         }
         
         private List<Fighter> _fighters;
+        private List<Academy> _academies;
         
         public IActionResult Index()
         {
-            _fighters = _context.Fighters.ToList();
+            _fighters = _context.Fighters.Include(a => a.FAcademy).ToList();
             return View("Index", _fighters);
         }
         
@@ -36,52 +38,100 @@ namespace Bjj.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,DateOfBirth,WeightCategory,BeltColour")] Fighter fighter)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,DateOfBirth,WeightCategory,BeltColour,AcademyId")] FighterViewModel fighterViewModel)
         {
-            if (id != fighter.Id)
+            if (id != fighterViewModel.Id)
             {
                 return NotFound();
             }
+            _fighters = _context.Fighters.Include(a => a.FAcademy).ToList();
 
-            if (ModelState.IsValid)
-            {
-                _context.Update(fighter);
-                await _context.SaveChangesAsync();
-            }
+            var fighter = _fighters.FirstOrDefault(f => f.Id == fighterViewModel.Id);
+            fighter.BeltColour = fighterViewModel.BeltColour;
+            fighter.FAcademy = _context.Academies.FirstOrDefault(a => a.Id == fighterViewModel.AcademyId);
+            fighter.FirstName = fighterViewModel.FirstName;
+            fighter.LastName = fighterViewModel.LastName;
+            fighter.WeightCategory = fighterViewModel.WeightCategory;
+            fighter.DateOfBirth = fighterViewModel.DateOfBirth;
+            _context.Update(fighter);
+            await _context.SaveChangesAsync();
             return Index();
         }        
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
+            _academies = _context.Academies.ToList();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var fighter = await _context.Fighters.FindAsync(id);
+            var fighter =  _context.Fighters.Include(a => a.FAcademy).FirstOrDefault(f => f.Id == id);
             if (fighter == null)
             {
                 return NotFound();
             }
-            return View(fighter);
+
+            var figterViewModel = new FighterViewModel
+            {
+                Id = fighter.Id,
+                FirstName = fighter.FirstName,
+                LastName = fighter.LastName,
+                DateOfBirth = fighter.DateOfBirth,
+                WeightCategory = fighter.WeightCategory,
+                BeltColour = fighter.BeltColour,
+                Academy = fighter.FAcademy.Name,
+                Academies = _academies.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }).ToList()
+            };
+            
+            
+            return View(figterViewModel);
         }
         
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            _academies = _context.Academies.ToList();
+
+            var figterViewModel = new FighterViewModel
+            {
+                FirstName = null,
+                LastName = null,
+                DateOfBirth = new DateTime(),
+                WeightCategory = WeightClasses.Light,
+                BeltColour = BeltColours.White,
+                Academies = _academies.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }).ToList()
+            };
+            return View(figterViewModel);
         }  
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add([Bind("Id,FirstName,LastName,DateOfBirth,WeightCategory,BeltColour")] Fighter fighter)
+        public async Task<IActionResult> Add([Bind("Id,FirstName,LastName,DateOfBirth,WeightCategory,BeltColour,AcademyId")] FighterViewModel fighterViewModel)
         {
-            if (ModelState.IsValid)
+            _academies = _context.Academies.ToList();
+
+            
+            var fighter = new Fighter
             {
+                FirstName = fighterViewModel.FirstName,
+                LastName = fighterViewModel.LastName,
+                DateOfBirth = fighterViewModel.DateOfBirth,
+                WeightCategory = fighterViewModel.WeightCategory,
+                BeltColour = fighterViewModel.BeltColour,
+                FAcademyId = fighterViewModel.AcademyId
+            };
                 _context.Add(fighter);
                 await _context.SaveChangesAsync();
-            }
-            return Index();
+                return Index();
         }
 
         [HttpGet]
@@ -92,7 +142,7 @@ namespace Bjj.Controllers
             {
                 return NotFound();
             }
-            var fighter =  _context.Fighters.Find(id);
+            var fighter =  _context.Fighters.Include(a => a.FAcademy).FirstOrDefault(f => f.Id == id);
             if (fighter == null)
             {
                 return NotFound();
@@ -124,8 +174,18 @@ namespace Bjj.Controllers
                     label = submissionCount.Key.Name,
                     y = submissionCount.Count(),
                 };
+            var loosedFigtsFinishes = from f in _fights
+                where id != f.Winner.Id
+                group f by f.FightResultBy
+                into submissionCount
+                select new
+                {
+                    label = submissionCount.Key.Name,
+                    y = submissionCount.Count(),
+                };
             ViewBag.Data = JsonConvert.SerializeObject(winnedFigtsFinishes);
-                
+            ViewBag.DataLoses = JsonConvert.SerializeObject(loosedFigtsFinishes);
+
             ViewData["Fights"] = fightsToDisplay;
             return View(fighter);
         }

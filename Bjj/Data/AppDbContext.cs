@@ -33,11 +33,19 @@ namespace Bjj.Data
                     .WithMany()
                     .HasForeignKey(f => f.FightResultById)
                     .OnDelete(DeleteBehavior.Cascade);
+                modelBuilder.Entity<Fighter>()
+                    .HasOne(f => f.FAcademy)
+                    .WithMany()
+                    .HasForeignKey(f => f.FAcademyId)
+                    .OnDelete(DeleteBehavior.Cascade);
 
             }
             public virtual DbSet<Models.Fighter> Fighters { get; set; } = default!;
             public virtual DbSet<Models.Fight> Fights { get; set; } = default!;
             public virtual DbSet<Models.FightResultBy> FightResultsBy { get; set; } = default!;
+            
+            public virtual DbSet<Models.Academy> Academies { get; set; } = default!;
+
 
 
             protected override void OnConfiguring(DbContextOptionsBuilder options)
