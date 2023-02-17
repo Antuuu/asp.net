@@ -95,7 +95,7 @@ window.onload = function () {
             </div>
             <div >
                 <label asp-for="DateOfBirth" class="control-label"></label>:
-                <span> @Model.DateOfBirth.ToString("dd/MM/yyyy") </span>
+                <span> @Model.DateOfBirth.ToString("d") </span>
             </div>
             <div >
                 <label asp-for="WeightCategory" class="control-label"></label>:
@@ -129,7 +129,7 @@ window.onload = function () {
 @foreach (var fight in fightsData)
 {
     <tr>
-        <td>@fight.DateOfFight </td>
+        <td>@fight.DateOfFight.ToString("dd/MM/yyyy") </td>
         <td>@fight.Oponent </td>
         <td>@fight.Result </td>
         <td>@fight.FightResultBy </td>
