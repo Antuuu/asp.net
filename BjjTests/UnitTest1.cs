@@ -27,7 +27,8 @@ public class TestDatabaseFixture
 
                     context.AddRange(
                         new Academy() {Name = "Academy1", Address = "Address1", HeadCoach = "HeadCoach1"},
-                        new Academy() {Name = "Academy2", Address = "Address2", HeadCoach = "HeadCoach2"});
+                        new Academy() {Name = "Academy2", Address = "Address2", HeadCoach = "HeadCoach2"},
+                        new Academy() {Name = "Academy3", Address = "Address3", HeadCoach = "HeadCoach3"});
                     context.SaveChanges();
                 }
 
@@ -76,7 +77,16 @@ public class BjjRepositoryTest : IClassFixture<TestDatabaseFixture>
         using var context = Fixture.CreateContext();
         var controller = new AcademyController(context);
 
-        Assert.Equal(2, context.Academies.ToList().Count);
+        Assert.Equal(3, context.Academies.ToList().Count);
+    }
+    
+    [Fact]
+    public void GetAcademie_Name()
+    {
+        using var context = Fixture.CreateContext();
+        var controller = new AcademyController(context);
+
+        Assert.Equal("Academy1", context.Academies.FirstOrDefault(a => a.Id == 1).Name);
     }
         
 }
