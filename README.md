@@ -10,7 +10,7 @@ Bjj is a ASP.NET Core MVC CRUD application with amazing GUI which gives you oppo
   ![Login Screen](app_images/fighter_details.png)
 ## Tech
 Bjj is built on top of:
-- [ASP.NET Core MVC]
+- [ASP.NET Core MVC target framework net6.0]
 - [SQLite] - database.
 
 
