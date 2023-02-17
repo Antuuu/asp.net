@@ -11,7 +11,7 @@ public class FightResultBy
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     [Required]
-    [Display(Name = "Nazwa")]
+    [Display(Name = "Name")]
     [StringLength(50)]
     [DataType(DataType.Text)]
     public string Name { get; set; }

@@ -10,27 +10,27 @@ public class FighterViewModel
 {
     public int Id { get; set; }
     [Required]
-    [Display(Name = "Imię")]
+    [Display(Name = "Name")]
     [StringLength(50)]
     [DataType(DataType.Text)]
     public string FirstName { get; set; }
 
     [Required]
-    [Display(Name = "Nazwisko")]
+    [Display(Name = "Last name")]
     [StringLength(50)]
     [DataType(DataType.Text)]
     public string LastName { get; set; }
 
     [Required]
-    [Display(Name = "Data urodzenia")]
+    [Display(Name = "Date of birth")]
     [DataType(DataType.Date)]
     public DateTime DateOfBirth { get; set; }
 
     [Required]
-    [Display(Name = "Kategoria Wagowa")]
+    [Display(Name = "Weight category")]
     public WeightClasses WeightCategory { get; set; }
 
-    [Required] [Display(Name = "Pas")] public BeltColours BeltColour { get; set; }
+    [Required] [Display(Name = "Belt colour")] public BeltColours BeltColour { get; set; }
     /* do uzupełnienia */
     
     public string Academy { get; set; }

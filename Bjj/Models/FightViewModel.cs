@@ -21,12 +21,12 @@ public class FightViewModel
     public int WinnerId { get; set; }
 
     [Required]
-    [Display(Name = "Data walki")]
+    [Display(Name = "Date of fight")]
     [DataType(DataType.Date)]
     public DateTime DateOfFight { get; set; }
 
     [Required]
-    [Display(Name = "Kategoria Wagowa")]
+    [Display(Name = "Weight category")]
     public WeightClasses WeightCategory { get; set; }
 
     public int FightResultById { get; set; }
